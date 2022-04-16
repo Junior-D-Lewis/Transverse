@@ -1,22 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {Text, View } from 'react-native';
 import tw from 'twrnc';
+import Register from './components/Register';
+import Login from './components/Login';
 
 export default function App() {
   return (
-    <View style={tw`bg-red-500`}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Hello</Text>
+    <View >
+      <Register/>
       <StatusBar style="auto" />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
