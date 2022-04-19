@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Register from './components/Register';
 import Login from './components/Login';
+import testServer from './components/testServer';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,6 +16,7 @@ export default function App() {
       <Tab.Navigator screenOptions={{ tabBarShowLabel: false,headerShown: false}}>
         <Tab.Screen name="Home" component={Login}/>
         <Tab.Screen name="Settings" component={Register} />
+        <Tab.Screen name="testServer" component={testServer} />
       </Tab.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
