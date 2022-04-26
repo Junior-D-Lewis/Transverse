@@ -1,7 +1,8 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+//const cors = require('cors')
 const app = express()
-/*const bodyParser = require('body-parser')
-const cors = require('cors')*/
+app.use(bodyParser.json())
 
 const PORT = process.env.S_PORT  || 3000
  app.listen(PORT, () => {
