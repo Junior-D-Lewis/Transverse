@@ -5,6 +5,10 @@ import GoogleIcon from '../Icons/GoogleIcon';
 import FacebookIcon from '../Icons/FacebookIcon';
 import AppleIcon from '../Icons/AppleIcon';
 import tw from 'twrnc';
+import axios from 'axios'
+import testServer from './testServer';
+import HomeView from '../views/HomeView';
+import {  useNavigation } from '@react-navigation/native'
 
 const Register = () => {
     const [prenom, onChangePrenom] = useState("");
@@ -12,6 +16,28 @@ const Register = () => {
     const [email, onChangeEmail] = useState("");
     const [password, onChangePass] = useState("");
     const [pass_confirm, onChangeConfirm] = useState("");
+
+    let navigation = useNavigation();
+
+    const getRest = async () => {
+      const responce = await axios.post("http://10.0.2.2:3000/addUsers/", 
+      {nom: nom,
+      prenom: prenom,
+      email: email,
+      password: password, 
+    },
+      )
+
+      navigation.navigate('HomeView')
+    /*  if(responcee.data == "user added" ){
+        alert(responce.data)
+        navigation.navigate('HomeView')
+      }else{
+        alert(responce.data)
+      }*/
+      
+    }
+
   return (
     <View style={tw`bg-white h-full flex items-center justify-between`}>
       
@@ -43,7 +69,7 @@ const Register = () => {
           <TextInput  onChangeText={onChangeConfirm} value={pass_confirm} placeholder="Confirme Password"/>
       </View>
 
-      <Pressable style={tw`mx-auto bg-blue-600 rounded-3 w-80 py-3  mt-7`}>
+      <Pressable style={tw`mx-auto bg-blue-600 rounded-3 w-80 py-3  mt-7`} onPress={getRest}>
           <Text style={tw`text-center text-white`}>Register</Text>
       </Pressable>
 
