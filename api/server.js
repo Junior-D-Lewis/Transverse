@@ -1,13 +1,34 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-//const cors = require('cors')
-const app = express()
-app.use(bodyParser.json())
+const express = require('express');
+const morgan = require('morgan');
+const favicon = require('serve-favicon');
+const bodyParser = require('body-parser');
+const sequelize = require('./src/db/sequelize');
 
-const PORT = process.env.S_PORT  || 3000
- app.listen(PORT, () => {
-     console.log(PORT) 
-    console.log(`Server is running on port ${PORT}`)
-})
+const app = express();
+const port = 3000;
 
-module.exports = app
+app
+    .use(favicon(__dirname + '/favicon.ico'))
+    .use(morgan('dev'))
+    .use(bodyParser.json())
+
+sequelize.initDb() 
+
+require('./src/routes/users/findAllUsers')(app);
+require('./src/routes/users/findUsersByPk')(app);
+require('./src/routes/users/createUsers')(app);
+require('./src/routes/users/updateUsers')(app);
+require('./src/routes/users/deleteUsers')(app);
+require('./src/routes/users/giveGain')(app);
+require('./src/routes/users/noteUser')(app);
+
+require('./src/routes/annonces/createAnnonce')(app);
+require('./src/routes/annonces/findAllAnnonces')(app);
+require('./src/routes/annonces/findAnnoncesByPk')(app);
+require('./src/routes/annonces/updateAnnonce')(app);
+require('./src/routes/annonces/deleteAnnonce')(app);
+require('./src/routes/annonces/acceptAnnonce')(app);
+
+require('./src/routes/stats/order')(app);
+
+app.listen(port, () => console.log(`Server is running on http://localhost:${port}!`));
