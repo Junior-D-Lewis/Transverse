@@ -4,7 +4,7 @@ import tw from 'twrnc';
 import axios from 'axios'
 
 
-const testServer = () => {
+const TestServer = () => {
     const [res, setRes] = useState('Etat initial')
     
   /*  const getRest = async () => {
@@ -22,4 +22,4 @@ const testServer = () => {
   )
 }
 
-export default testServer
+export default TestServer
