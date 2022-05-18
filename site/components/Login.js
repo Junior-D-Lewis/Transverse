@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 import { View, Text, Image, TextInput,Pressable } from 'react-native'
 import React from 'react';
 import GoogleIcon from '../Icons/GoogleIcon';
@@ -6,10 +8,13 @@ import AppleIcon from '../Icons/AppleIcon';
 import { Foundation, Feather } from '@expo/vector-icons';
 import axios from 'axios'
 import tw from 'twrnc';
+import { useNavigation } from '@react-navigation/native';
 
-const Login = ({navigation}) => {
-    const [email, setEmail] = React.useState('')
-    const [password, setPassword] = React.useState('')
+const Login = () => {
+    const [email, setEmail] = React.useState("")
+    const [password, setPassword] = React.useState("")
+
+    const navigation = useNavigation();
 
     const logUser = async () => {
       const responce = await axios.post("http://10.0.2.2:3000/api/users/login", 
