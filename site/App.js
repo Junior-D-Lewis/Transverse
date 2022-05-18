@@ -2,7 +2,7 @@
 import { StatusBar } from 'expo-status-bar';
 //import {Text, View } from 'react-native';
 //import tw from 'twrnc';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -11,7 +11,7 @@ import HomeView from './views/HomeView'
 import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
-const navigation = useNavigation();
+// const navigation = useNavigation();
 
 export default function App() {
   return (
@@ -20,7 +20,7 @@ export default function App() {
       <Tab.Navigator screenOptions={{ tabBarShowLabel: false,headerShown: false}}>
         <Tab.Screen 
           name="Login" 
-          component={Login(navigation)}
+          component={Login}
           options={{
             tabBarLabel: 'Login',
             tabBarIcon: ({ color, size }) => (
