@@ -17,6 +17,8 @@ Ville.hasMany(Adresse, {foreignKey: 'cp', targetKey: 'codePostal'});
 Adresse.belongsTo(Ville, {foreignKey: 'cp', targetKey: 'codePostal'});
 Adresse.hasMany(User, {foreignKey: 'adresseID', targetKey: 'id'});
 User.belongsTo(Adresse, {foreignKey: 'adresseID', targetKey: 'id'});
+Adresse.hasMany(Annonce, {foreignKey: 'adresseID', targetKey: 'id'});
+Annonce.belongsTo(Adresse, {foreignKey: 'adresseID', targetKey: 'id'});
 User.belongsToMany(Annonce, {through: Accepter});
 Annonce.belongsToMany(User, {through: Accepter}); 
 User.belongsToMany(User, {as: 'from', through: Note, foreignKey: 'noteFrom', targetKey: 'id'});
