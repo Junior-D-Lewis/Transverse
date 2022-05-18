@@ -11,20 +11,20 @@ export const AnnonceGroup = ({children}) => {
 
 export const Annonce = ({info}) => {
     return (
-        <Pressable style = {tw`flex flex-row ml-1 mr-1 mt-2 mb-2 rounded border-solid border-2 border-indigo-600`}>
-            <View style = {tw`p-2  w-1/2`}>
+        <Pressable style = {tw`p-2 pb-18 h-80 flex flex-col ml-1 mr-1 mt-2 mb-2 rounded border-solid border-2 border-indigo-600`}>
+            <View style = {tw`h-1/5`}>
                 <View>
                     <Text style = {tw`uppercase font-bold text-justify`}>{info.name}</Text>
-                    <View style = {tw`ml-5`}>
-                        <Text style = {tw`w-1/2 mt-2 mb-2 text-lg font-mono`}>{info.des}</Text>
-                    </View>
-                    <View style = {tw`w-1/2 mt-2`}>
-                        <Text style ={tw`text-base font-bold`}>{info.userPseudo}</Text>
-                        <Text  style ={tw`italic text-sm`}>{info.date}</Text>
-                    </View>
                 </View>
             </View>
-            <Image style = {tw`w-1/2 h-full`} source = { info.imgSrc }></Image>
+            <View style = {tw`h-5/6 w-full`}>
+                <Image style = {{height : '100%',width : '100%'}} source = { info.imgSrc }></Image>
+            </View>
+            <View style = {tw`h-1/5 w-full`}>
+                <Text style ={tw`text-base font-bold`}>{info.userPseudo}</Text>
+                <Text  style ={tw`font-bold text-red-400 text-sm`}>{info.credits} credit(s)</Text>
+                <Text  style ={tw`italic text-sm`}>{info.date}</Text>
+            </View>
         </Pressable>
     );
 }
