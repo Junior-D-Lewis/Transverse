@@ -21,6 +21,7 @@ require('./src/routes/users/updateUsers')(app);
 require('./src/routes/users/deleteUsers')(app);
 require('./src/routes/users/giveGain')(app);
 require('./src/routes/users/noteUser')(app);
+require('./src/routes/users/loginUsers')(app);
 
 require('./src/routes/annonces/createAnnonce')(app);
 require('./src/routes/annonces/findAllAnnonces')(app);

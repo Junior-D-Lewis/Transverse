@@ -4,11 +4,23 @@ import GoogleIcon from '../Icons/GoogleIcon';
 import FacebookIcon from '../Icons/FacebookIcon';
 import AppleIcon from '../Icons/AppleIcon';
 import { Foundation, Feather } from '@expo/vector-icons';
+import axios from 'axios'
 import tw from 'twrnc';
 
-const Login = () => {
+const Login = ({navigation}) => {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
+
+    const logUser = async () => {
+      const responce = await axios.post("http://10.0.2.2:3000/api/users/login", 
+          {email: email, password: password})
+          if(responce.status === 200){
+            navigation.navigate('HomeView')
+          }else{
+            alert('email ou mot de passe incorrect')
+          }
+    }
+
   return (
     <View style={tw`bg-white h-full flex items-center justify-between`}>
       
@@ -27,7 +39,8 @@ const Login = () => {
             <Feather name="key" size={20} color="gray" style={tw`px-3`} />
             <TextInput  onChangeText={setPassword} value={password} placeholder="Password"/>
         </View>
-        <Pressable style={tw`mx-auto bg-blue-600 rounded-3 w-80 py-3 `}>
+        <Pressable style={tw`mx-auto bg-blue-600 rounded-3 w-80 py-3 `}
+                    onPress={logUser}>
             <Text style={tw`text-center text-white`}>Login</Text>
         </Pressable>
 
