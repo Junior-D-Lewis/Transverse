@@ -6,7 +6,7 @@ import FacebookIcon from '../Icons/FacebookIcon';
 import AppleIcon from '../Icons/AppleIcon';
 import tw from 'twrnc';
 import axios from 'axios'
-import testServer from './testServer';
+import testServer from './TestServer';
 import HomeView from '../views/HomeView';
 import {  useNavigation } from '@react-navigation/native'
 

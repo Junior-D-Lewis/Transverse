@@ -5,8 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Register from './components/Register';
 import Login from './components/Login';
-import testServer from './components/testServer';
+import TestServer from './components/TestServer';
 import HomeView from './views/HomeView'
+import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,10 +16,46 @@ export default function App() {
     
     <NavigationContainer>
       <Tab.Navigator screenOptions={{ tabBarShowLabel: false,headerShown: false}}>
-        <Tab.Screen name="Home" component={Login}/>
-        <Tab.Screen name="Settings" component={Register} />
-        <Tab.Screen name="testServer" component={testServer} />
-        <Tab.Screen name="HomeView" component={HomeView} />
+        <Tab.Screen 
+          name="Login" 
+          component={Login}
+          options={{
+            tabBarLabel: 'Login',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-key" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen 
+          name="Register" 
+          component={Register} 
+          options={{
+            tabBarLabel: 'Register',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="keypad" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen 
+          name="testServer" 
+          component={TestServer} 
+          options={{
+            tabBarLabel: 'Settings',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="settings" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen 
+          name="HomeView" 
+          component={HomeView} 
+          options={{
+            tabBarLabel: 'Annonces',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="notifications-sharp" color={color} size={size} />
+            ),
+          }}
+        />
       </Tab.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
