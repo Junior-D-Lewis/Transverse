@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
  const listeAnnonces = [{
     "id": 1,
     "name": "Registered Nurse",
@@ -210,4 +211,4 @@
     "imgSrc" : require("../assets/images/Dragon-Ball.jpg") 
   }]
 
-module.exports = listeAnnonces;
+export default listeAnnonces;

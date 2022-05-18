@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 import { View, Text, Image, TextInput,Pressable } from 'react-native'
 import React from 'react';
 import GoogleIcon from '../Icons/GoogleIcon';

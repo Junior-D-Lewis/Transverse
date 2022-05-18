@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/react-in-jsx-scope */
 import {Pressable, Image, TextInput, View, Text } from 'react-native'
 import {Foundation, Feather } from '@expo/vector-icons';
 import {useState} from 'react'

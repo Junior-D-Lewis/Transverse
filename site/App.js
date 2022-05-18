@@ -1,6 +1,7 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { StatusBar } from 'expo-status-bar';
-import {Text, View } from 'react-native';
-import tw from 'twrnc';
+//import {Text, View } from 'react-native';
+//import tw from 'twrnc';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Register from './components/Register';

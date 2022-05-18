@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Image, View, Text } from 'react-native'
 import React from 'react'
 

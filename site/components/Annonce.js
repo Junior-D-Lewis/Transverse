@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {View,Text,Image,Pressable} from 'react-native'
 import tw from 'twrnc';
 
+// eslint-disable-next-line react/prop-types
 export const AnnonceGroup = ({children}) => {
     const annonces = React.Children.toArray(children)
     return <View style = {tw`p-12 flex flex-col border-solid border-1 border-red-600`}>
@@ -9,6 +11,7 @@ export const AnnonceGroup = ({children}) => {
     </View>
 }
 
+// eslint-disable-next-line react/prop-types
 export const Annonce = ({info}) => {
     return (
         <Pressable style = {tw`flex flex-row ml-1 mr-1 mt-2 mb-2 rounded border-solid border-2 border-indigo-600`}>
