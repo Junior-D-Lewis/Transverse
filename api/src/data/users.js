@@ -6,7 +6,7 @@ const users = [
         email: 'junior@gmail.com',
         password: '1234',
         credit: 30,
-        adresse: 4
+        adresseID: 1,
     },
     {
         nom: 'Timi',
@@ -14,7 +14,7 @@ const users = [
         email: 'junior@gmail.com',
         password: '1234',
         credit: 30,
-        adresse: 2
+        adresseID: 2,
     },
     {
         nom: 'Jin',
@@ -22,7 +22,7 @@ const users = [
         email: 'junior@gmail.com',
         password: '1234',
         credit: 30,
-        adresse: 3
+        adresseID: 3,
     },
     {
         nom: 'vannelle',
@@ -30,7 +30,7 @@ const users = [
         email: 'vanne@gmail.com',
         password: '1234',
         credit: 30,
-        adresse: 4
+        adresseID: 4
     }
 ]
 
