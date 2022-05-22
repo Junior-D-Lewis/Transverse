@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/react-in-jsx-scope */
 import {Pressable, Image, TextInput, View, Text } from 'react-native'
 import {Foundation, Feather } from '@expo/vector-icons';
 import {useState} from 'react'
@@ -6,7 +8,7 @@ import FacebookIcon from '../Icons/FacebookIcon';
 import AppleIcon from '../Icons/AppleIcon';
 import tw from 'twrnc';
 import axios from 'axios'
-import testServer from './TestServer';
+import TestServer from './TestServer';
 import HomeView from '../views/HomeView';
 import {  useNavigation } from '@react-navigation/native'
 
@@ -75,7 +77,7 @@ const Register = () => {
 
     </View>
     <View style={tw`pb-8`}>
-          <Text style={tw`text-center text-gray-400 text-xs pb-3`}>Or register witch..</Text>
+          <Text style={tw`text-center text-gray-400 text-xs pb-3`}>Or register with..</Text>
           <View style={tw`flex flex-row flew-nowrap justify-between items-center w-50`}>
             <GoogleIcon height='25' width='25'/>
             <FacebookIcon height='25' width='25'/>

@@ -47,12 +47,12 @@ const Login = () => {
                       onPress={logUser}>
               <Text style={tw`text-center text-white`}>Login</Text>
           </Pressable>
-          <Text 
-            onClick={()=>navigation.navigate("Register")}
-            style={tw`underlined text-center text-blue`}
+          <Pressable 
+            onPress={()=>navigation.navigate("Register")}
+            style={tw`bg-transparent underline text-center text-blue-400`}
           >
             Je n'ai pas encore de compte
-          </Text>
+          </Pressable>
         </View>
         <View style={tw`pb-5`}>
               <Text style={tw`text-center text-gray-400 text-xs pb-3`}>Or, login with..</Text>
