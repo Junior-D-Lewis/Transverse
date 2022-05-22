@@ -1,65 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import {Text, View } from 'react-native';
-import tw from 'twrnc';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Register from './components/Register';
-import Login from './components/Login';
-import TestServer from './components/TestServer';
-import HomeView from './views/HomeView'
-import { Ionicons } from '@expo/vector-icons';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Login from "./components/Login.js";
+import HomeView from "./views/HomeView";
+import Register from "./components/Register.js";
 
-const Tab = createBottomTabNavigator();
-const navigation = useNavigation();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={{ tabBarShowLabel: false,headerShown: false}}>
-        <Tab.Screen 
-          name="Login" 
-          component={Login(navigation)}
-          options={{
-            tabBarLabel: 'Login',
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="ios-key" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen 
-          name="Register" 
-          component={Register} 
-          options={{
-            tabBarLabel: 'Register',
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="keypad" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen 
-          name="testServer" 
-          component={TestServer} 
-          options={{
-            tabBarLabel: 'Settings',
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="settings" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen 
-          name="HomeView" 
-          component={HomeView} 
-          options={{
-            tabBarLabel: 'Annonces',
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="notifications-sharp" color={color} size={size} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
-      <StatusBar style="auto" />
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator screenOptions={{ headerShown: false}}>
+                <Stack.Screen name = "Login" component = {Login} />
+                <Stack.Screen name = "Register" component = {Register} />
+                <Stack.Screen name = "HomeView" component = {HomeView} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
 }
-
