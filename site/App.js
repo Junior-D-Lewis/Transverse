@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Register from './components/Register';
 import Login from './components/Login';
 import TestServer from './components/TestServer';
+import NewAnnonce from './components/NewAnnonce';
 import HomeView from './views/HomeView'
 import { Ionicons } from '@expo/vector-icons';
 
@@ -39,8 +40,8 @@ export default function App() {
           }}
         />
         <Tab.Screen 
-          name="testServer" 
-          component={TestServer} 
+          name="newAnnonce" 
+          component={NewAnnonce} 
           options={{
             tabBarLabel: 'Settings',
             tabBarIcon: ({ color, size }) => (

@@ -5,6 +5,7 @@ const UserModel = require('../models/user');
 const AccepterModel = require('../models/accepter');
 const VilleModel = require('../models/ville');
 const NoteModel = require('../models/note');
+const ImgUploadModel = require('../models/imgUpload')
 
 const Ville = VilleModel(sequelize, DataTypes);
 const Adresse = AdresseModel(sequelize, DataTypes)
@@ -12,6 +13,7 @@ const User = UserModel(sequelize, DataTypes)
 const Annonce = AnnonceModel(sequelize, DataTypes)
 const Accepter = AccepterModel(sequelize, DataTypes)
 const Note = NoteModel(sequelize, DataTypes)
+const ImgUpload = ImgUploadModel(sequelize, DataTypes)
 
 Ville.hasMany(Adresse, {foreignKey: 'cp', targetKey: 'codePostal'});
 Adresse.belongsTo(Ville, {foreignKey: 'cp', targetKey: 'codePostal'});
@@ -30,5 +32,6 @@ module.exports = {
     Annonce,
     Ville,
     Accepter,
-    Note
+    Note,
+    ImgUpload
 }

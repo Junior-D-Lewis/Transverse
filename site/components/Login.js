@@ -17,7 +17,7 @@ const Login = () => {
     const navigation = useNavigation();
 
     const logUser = async () => {
-      const responce = await axios.post("http://10.0.2.2:3000/api/users/login", 
+      const responce = await axios.post("http://10.188.223.22:3000/api/users/login", 
           {email: email, password: password})
           if(responce.status === 200){
             navigation.navigate('HomeView')
