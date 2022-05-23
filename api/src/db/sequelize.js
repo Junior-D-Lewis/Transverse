@@ -1,9 +1,10 @@
-const {User, Adresse, Annonce, Ville, Accepter, Note} = require('./migration');
+const {User, Adresse, Annonce, Ville, Accepter, Note, ImgUpload} = require('./migration');
 const users = require('../data/users')
 const annonces = require('../data/annonces')
 const adresses = require('../data/adresses')
 const villes = require('../data/villes')
 const {sequelize} = require('./indexSequelize');
+const imgs = require('../data/imgs')
 
 sequelize.authenticate()
     .then(() => console.log('Connection has been established successfully.'))
@@ -18,6 +19,7 @@ const initDb = async () => {
             adresses.map(adresse => Adresse.create(adresse))
             users.map(user => User.create(user))  
             annonces.map(annonce => Annonce.create(annonce))
+            imgs.map(img => ImgUpload.create(img))
         })
         .catch(err => console.error('An error occurred while creating the database:', err))
 
@@ -30,5 +32,6 @@ module.exports = {
     Adresse,
     Ville,
     Accepter,
-    Note
+    Note,
+    ImgUpload
 }

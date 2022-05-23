@@ -12,7 +12,9 @@ app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(morgan('dev'))
     .use(bodyParser.json())
+    .use(bodyParser.urlencoded({ extended: true }))
     .use(cors())
+
 sequelize.initDb() 
 
 require('./src/routes/users/findAllUsers')(app);
@@ -32,5 +34,7 @@ require('./src/routes/annonces/deleteAnnonce')(app);
 require('./src/routes/annonces/acceptAnnonce')(app);
 
 require('./src/routes/stats/order')(app);
+
+require('./src/routes/images/uploadImage')(app);
 
 app.listen(port, () => console.log(`Server is running on http://localhost:${port}!`));

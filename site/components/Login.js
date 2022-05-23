@@ -16,7 +16,7 @@ const Login = () => {
     const [password, setPassword] = React.useState('')
     
     const logUser = async () => {
-      const response = await axios.post("http://10.188.231.119:3000/api/users/login", 
+      const response = await axios.post("http://localhost:3000/api/users/login", 
           {email: email, password: password})
           if(response.status === 200){
             navigation.navigate('HomeView')

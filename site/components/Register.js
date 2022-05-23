@@ -8,7 +8,6 @@ import FacebookIcon from '../Icons/FacebookIcon';
 import AppleIcon from '../Icons/AppleIcon';
 import tw from 'twrnc';
 import axios from 'axios'
-import TestServer from './Ajouter';
 import HomeView from '../views/HomeView';
 import {  useNavigation } from '@react-navigation/native'
 
