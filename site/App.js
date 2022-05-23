@@ -8,13 +8,21 @@ import Register from "./components/Register.js";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false}}>
-                <Stack.Screen name = "Login" component = {Login} />
-                <Stack.Screen name = "Register" component = {Register} />
-                <Stack.Screen name = "HomeView" component = {HomeView} />
-            </Stack.Navigator>
-        </NavigationContainer>
+    return ( 
+    <NavigationContainer >
+        <Stack.Navigator screenOptions = {
+            { headerShown: false }
+        } >
+        <Stack.Screen name = "Login"
+        component = { Login }
+        /> 
+        <Stack.Screen name = "Register"
+        component = { Register }
+        /> 
+        <Stack.Screen name = "HomeView"
+        component = { HomeView }
+        /> 
+        </Stack.Navigator > 
+    </NavigationContainer>
     )
 }

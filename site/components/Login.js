@@ -16,7 +16,7 @@ const Login = () => {
     const [password, setPassword] = React.useState('')
     
     const logUser = async () => {
-      const response = await axios.post("http://10.0.2.2:3000/api/users/login", 
+      const response = await axios.post("http://10.188.231.119:3000/api/users/login", 
           {email: email, password: password})
           if(response.status === 200){
             navigation.navigate('HomeView')
@@ -49,9 +49,10 @@ const Login = () => {
           </Pressable>
           <Pressable 
             onPress={()=>navigation.navigate("Register")}
-            style={tw`bg-transparent underline text-center text-blue-400`}
-          >
-            Je n'ai pas encore de compte
+            style={tw`bg-transparent underline text-center text-blue-400`}>
+              <Text>
+                Je n'ai pas encore de compte
+              </Text>
           </Pressable>
         </View>
         <View style={tw`pb-5`}>

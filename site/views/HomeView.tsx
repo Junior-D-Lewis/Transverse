@@ -4,23 +4,22 @@ import tw from 'twrnc';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Register from '../components/Register';
 import Login from '../components/Login';
-import TestServer from '../components/TestServer';
+import Ajouter from '../components/Ajouter';
 import Annonces from '../components/Annonces';
-import { AntDesign,Feather,MaterialIcons,FontAwesome } from '@expo/vector-icons';
+import { AntDesign,Feather,MaterialIcons,FontAwesome,SimpleLineIcons } from '@expo/vector-icons';
 import { Annonce } from '../components/Annonce';
 import Search from '../components/Search';
 
 const Tab = createBottomTabNavigator();
-// const navigation = useNavigation();
 
 export default function HomeView() {
   return (
-      <Tab.Navigator screenOptions={{ tabBarShowLabel: false,headerShown: false}}>
+      <Tab.Navigator screenOptions={{headerShown : false}}>
         <Tab.Screen 
           name="Home" 
           component={Annonces}
           options={{
-            tabBarLabel: 'Login',
+            tabBarLabel: 'Home',
             tabBarIcon: ({ color, size }) => (
               <AntDesign name="home" size={24} style={tw`text-blue-600`}/>
             ),
@@ -37,10 +36,10 @@ export default function HomeView() {
           }}
         />
         <Tab.Screen 
-          name="Poster" 
-          component={TestServer} 
+          name="Ajouter une annonce" 
+          component={Ajouter} 
           options={{
-            tabBarLabel: 'Poster',
+            tabBarLabel: 'Ajouter',
             tabBarIcon: ({ color, size }) => (
               <AntDesign name="pluscircleo" size={24} style={tw`text-blue-600`}/>
             ),
@@ -50,9 +49,9 @@ export default function HomeView() {
           name="Notifications" 
           component={Annonces} 
           options={{
-            tabBarLabel: 'Annonces',
+            tabBarLabel: 'Notifications',
             tabBarIcon: ({ color, size }) => (
-              <MaterialIcons name="notifications" size={24} style={tw`text-blue-600`}/>            
+              <MaterialIcons name="notifications-none" size={24} style={tw`text-blue-600`}/>            
               ),
           }}
         />
@@ -62,8 +61,8 @@ export default function HomeView() {
           options={{
             tabBarLabel: 'Profile',
             tabBarIcon: ({ color, size }) => (
-              <FontAwesome name="user" size={24} style={tw`text-blue-600`}/>
-              ),
+              <SimpleLineIcons name="user" size={24} style={tw`text-blue-600`} />
+             ),
           }}
         />
       </Tab.Navigator>
