@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/react-in-jsx-scope */
-import {Pressable, Image, TextInput, View, Text } from 'react-native'
+import {Pressable, Image, TextInput, View, Text, TouchableOpacity } from 'react-native'
 import {Foundation, Feather } from '@expo/vector-icons';
 import {useState} from 'react'
 import GoogleIcon from '../Icons/GoogleIcon';
@@ -8,10 +8,12 @@ import FacebookIcon from '../Icons/FacebookIcon';
 import AppleIcon from '../Icons/AppleIcon';
 import tw from 'twrnc';
 import axios from 'axios'
-import TestServer from './TestServer';
 import HomeView from '../views/HomeView';
+import {Login} from './Login';
 import {  useNavigation } from '@react-navigation/native'
 
+let registerUser;
+let reg = false
 const Register = () => {
     const [prenom, onChangePrenom] = useState("");
     const [nom, onChangeNom] = useState("");
@@ -22,21 +24,19 @@ const Register = () => {
     let navigation = useNavigation();
 
     const getRest = async () => {
-      const responce = await axios.post("http://10.0.2.2:3000/addUsers/", 
+      const response = await axios.post("http://localhost:3000/api/users", 
       {nom: nom,
       prenom: prenom,
       email: email,
       password: password, 
+      credit: 20,
     },
       )
-
-      navigation.navigate('HomeView')
-    /*  if(responcee.data == "user added" ){
-        alert(responce.data)
+      if(response.status === 200){
+        registerUser = response.data
+        reg = true
         navigation.navigate('HomeView')
-      }else{
-        alert(responce.data)
-      }*/
+      }
       
     }
 
@@ -75,6 +75,11 @@ const Register = () => {
           <Text style={tw`text-center text-white`}>Register</Text>
       </Pressable>
 
+      <Text style={tw`text-center text-gray-600`}>You already have an account?</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <Text>Sign in</Text>
+      </TouchableOpacity>
+
     </View>
     <View style={tw`pb-8`}>
           <Text style={tw`text-center text-gray-400 text-xs pb-3`}>Or register with..</Text>
@@ -88,4 +93,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export {Register, registerUser, reg}

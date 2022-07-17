@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput,Pressable, Alert } from 'react-native'
+import { View, Text, Image, TextInput,Pressable, Alert, TouchableOpacity } from 'react-native'
 import { useNavigation }  from '@react-navigation/native';
 import React from 'react';
 import GoogleIcon from '../Icons/GoogleIcon';
@@ -8,17 +8,19 @@ import { Foundation, Feather } from '@expo/vector-icons';
 import axios from 'axios'
 import tw from 'twrnc';
 import  HomeView  from '../views/HomeView';
-import Register from './Register';
+import {Register} from './Register';
 
+let loginUser
 const Login = () => {
     const navigation = useNavigation();
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     
     const logUser = async () => {
-      const response = await axios.post("http://10.0.2.2:3000/api/users/login", 
+      const response = await axios.post("http://10.188.223.22:3000/api/users/login", 
           {email: email, password: password})
           if(response.status === 200){
+            loginUser = response.data
             navigation.navigate('HomeView')
           }else{
             Alert.alert('email ou mot de passe incorrect')
@@ -47,12 +49,12 @@ const Login = () => {
                       onPress={logUser}>
               <Text style={tw`text-center text-white`}>Login</Text>
           </Pressable>
-          <Pressable 
-            onPress={()=>navigation.navigate("Register")}
-            style={tw`bg-transparent underline text-center text-blue-400`}
-          >
-            Je n'ai pas encore de compte
-          </Pressable>
+
+          <Text style={tw`text-center text-gray-600`}>You don't have an account?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text>Sign up</Text>
+          </TouchableOpacity>
+          
         </View>
         <View style={tw`pb-5`}>
               <Text style={tw`text-center text-gray-400 text-xs pb-3`}>Or, login with..</Text>
@@ -68,4 +70,4 @@ const Login = () => {
 
 
 
-export default Login
+export {Login, loginUser}
